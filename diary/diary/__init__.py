@@ -12,7 +12,7 @@ def action_add_task():
     content = input('\nВведите описание задачи: ')
     deadline = input('\nУкажите дедлайн: ')
 
-    with get_connection as conn:
+    with get_connection() as conn:
         pk = storage.add_task(conn, task_name, content, deadline)
 
 
@@ -20,7 +20,7 @@ def action_edit_task():
     """ Отредактировать задачу """
     pk = input('\nВведите id задачи: ')
 
-    with get_connection as conn:
+    with get_connection() as conn:
         task = storage.edit_task_by_pk(conn, pk)
 
         if task:
@@ -38,7 +38,7 @@ def action_edit_task():
 
 def action_display_tasks():
      """ Вывести список всех задач """
-    with get_connection as conn:
+    with get_connection() as conn:
         tasks = storage.find_all(conn)
 
     for task in tasks:
@@ -48,19 +48,19 @@ def action_display_tasks():
 
 def action_complite_task():
     pk = input('\nВведите id задачи: ')
-    with get_connection as conn:
+    with get_connection() as conn:
         storage.complite_task(conn, pk)
         
 
 def action_restart_task():
     pk = int(input('\nВведите id задачи: '))
-    with get_connection as conn:
+    with get_connection() as conn:
         storage.restart_task(conn, pk)
 
 
 def action_delete_task():
     pk = int(input('\nВведите id задачи: '))
-    with get_connection as conn:
+    with get_connection() as conn:
         storage.delete_task(conn, pk)
 
 
