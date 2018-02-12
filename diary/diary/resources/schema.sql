@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS diary (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title_task TEXT NOT NULL,
+    content TEXT NOT NULL,
+    status TINYINT NOT NULL DEFAULT 0,
+    created DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    deadline DATETIME NOT NULL
+);  
+        
+        
