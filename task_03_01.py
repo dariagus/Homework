@@ -7,4 +7,3 @@ def get_days_to_new_year():
 
     return days_left.days
 
-print(get_days_to_new_year())
